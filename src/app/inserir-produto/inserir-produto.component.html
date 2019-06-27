@@ -1,0 +1,21 @@
+<div class="container">
+  <form method="post" #frm="ngForm" [formGroup]="grupoForm" (ngSubmit)="criar(frm)">
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="descricao" class="badge badge-dark">Descrição</label>
+        <input
+          name="descricao"
+          [(ngModel)]="produto.descricao"
+          type="text"
+          class="form-control"
+          id="descricao"
+          placeholder="Descrição"
+          formControlName="descricao"
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success btn-block">Enviar</button>
+  </form>
+  <br />
+</div>
+<app-contatos-listagem></app-contatos-listagem>
