@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ContatosListagemComponent } from './contatos-listagem/contatos-listagem.component';
-import { HomeComponent } from './home/home.component';
-import { InserirProdutoComponent } from './inserir-produto/inserir-produto.component';
+import { ContatosListagemComponent } from './components/contatos-listagem/contatos-listagem.component';
+import { HomeComponent } from './components/home/home.component';
+import { InserirProdutoComponent } from './components/inserir-produto/inserir-produto.component';
+import { MozaikoComponent } from './components/mozaiko/mozaiko.component';
+import { LookupTableComponent } from './components/routes/lookup-table/lookup-table.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'produtos', component: ContatosListagemComponent },
   { path: 'inserirProduto', component: InserirProdutoComponent },
+  { path: 'mozaiko', component: MozaikoComponent },
+  { path: 'lookupTable', component: LookupTableComponent },
   { path: '', pathMatch: 'full', redirectTo: '/home' }
 ];
 
@@ -15,4 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

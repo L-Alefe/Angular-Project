@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { NgForm, FormGroup, FormsModule, FormControl } from '@angular/forms';
-import { ContatoService } from '../services/contato.service';
-import { Produto } from './../models/produto.models';
+import { ContatoService } from '../../services/contato.service';
+import { Produto } from './../../models/produto.models';
 import { Location } from '@angular/common';
 
 @Component({
@@ -24,13 +24,7 @@ export class InserirProdutoComponent implements OnInit {
 
   criar(frm: FormGroup) {
     this.produto = frm.value;
-    console.log('this.produto --> ');
-    console.log(this.produto);
-    this.contatoService.post(this.produto).subscribe(res => {
-      console.log('res -->');
-      console.log(res);
-      console.log('Executou!');
-    });
+    this.contatoService.post(this.produto).subscribe(res => {});
     frm.reset();
   }
 }
