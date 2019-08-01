@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { ContatoService } from '../../../services/contato.service';
@@ -13,10 +13,20 @@ import { ContatoService } from '../../../services/contato.service';
 export class TypeaheadComponent implements OnInit {
   model: any
   contatos: any
+  @Output() nameEmitter = new EventEmitter();
+  // @Input() testes;
   public valoresTypeahead: Array<any> = []
+
+  incrementa(_value) {
+    //this.valor++;
+    this.nameEmitter.emit({ novoValor: _value });
+  }
+
+
   constructor(private contatoService: ContatoService) { }
 
   ngOnInit() {
+    // console.log(this.testes);
     this.contatoService.get().subscribe(contato => {
       this.contatos = contato;
       for (var i = 0; i < this.contatos.length; i++) {
