@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mozaiko',
@@ -7,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MozaikoComponent implements OnInit {
   // public teste: string;
-  constructor() { }
+  public descricao: any;
+  constructor(private router: Router) {
+    const nav = this.router.getCurrentNavigation();
+    if (nav.extras.state) {
+      this.descricao = nav.extras.state.descricao;
+      // console.log('aqui está a descrição -->');
+      // console.log(this.descricao);
+    }
+  }
   public model: any;
   ngOnInit() { }
   aparecer(evento) {
-    console.log(evento)
+    // console.log(evento)
   }
 }

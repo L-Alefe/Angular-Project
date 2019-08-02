@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'produtos', component: ContatosListagemComponent },
   { path: 'inserirProduto', component: InserirProdutoComponent },
   { path: 'mozaiko', component: MozaikoComponent },
-  { path: 'lookupTable', component: LookupTableComponent },
+  { path: 'lookupTable', component: LookupTableComponent, data: { title: 'titulo' } },
   { path: '', pathMatch: 'full', redirectTo: '/home' }
 ];
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { ContatoService } from '../../../services/contato.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lookup-table',
@@ -11,7 +12,7 @@ export class LookupTableComponent implements OnInit {
   public nameEmitter = new EventEmitter()
   contatos = [];
   valoresTypeahead: Array<string> = [];
-  constructor(private contatoService: ContatoService) { }
+  constructor(private contatoService: ContatoService, private router: Router) { }
 
   ngOnInit() {
     this.contatoService.get().subscribe(contato => {
@@ -39,8 +40,10 @@ export class LookupTableComponent implements OnInit {
     } else if (count == 1) {
       count = 0;
       // Mágica
-      console.log(this.nomes)
       this.nameEmitter.emit(this.nomes)
+      this.router.navigateByUrl('/mozaiko', {
+        state: { descricao: this.nomes }
+      })
     }
   }
 

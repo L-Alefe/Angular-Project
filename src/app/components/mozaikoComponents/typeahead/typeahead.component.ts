@@ -13,20 +13,21 @@ import { ContatoService } from '../../../services/contato.service';
 export class TypeaheadComponent implements OnInit {
   model: any
   contatos: any
+  typeahead: any
   @Output() nameEmitter = new EventEmitter();
-  // @Input() testes;
+  @Input() dadoLookup: string;
   public valoresTypeahead: Array<any> = []
 
   incrementa(_value) {
-    //this.valor++;
     this.nameEmitter.emit({ novoValor: _value });
   }
-
 
   constructor(private contatoService: ContatoService) { }
 
   ngOnInit() {
-    // console.log(this.testes);
+    if (this.dadoLookup) {
+      this.model = this.dadoLookup
+    }
     this.contatoService.get().subscribe(contato => {
       this.contatos = contato;
       for (var i = 0; i < this.contatos.length; i++) {
