@@ -5,6 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+// Pipe
+import { PipeModule } from './pipes/pipe.module';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContatosListagemComponent } from './components/contatos-listagem/contatos-listagem.component';
@@ -17,9 +20,19 @@ import { LookupComponent } from './components/mozaikoComponents/lookup/lookup.co
 import { LookupTableComponent } from './components/routes/lookup-table/lookup-table.component';
 
 @NgModule({
-  declarations: [AppComponent, ContatosListagemComponent, MenuComponent, HomeComponent, InserirProdutoComponent, MozaikoComponent, TypeaheadComponent, LookupComponent, LookupTableComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, NgbModule],
+  declarations: [
+    AppComponent,
+    ContatosListagemComponent,
+    MenuComponent,
+    HomeComponent,
+    InserirProdutoComponent,
+    MozaikoComponent,
+    TypeaheadComponent,
+    LookupComponent,
+    LookupTableComponent
+  ],
+  imports: [PipeModule, BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

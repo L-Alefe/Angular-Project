@@ -3,30 +3,28 @@ import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { ContatoService } from '../../../services/contato.service';
 
-
-
 @Component({
   selector: 'app-typeahead',
   templateUrl: './typeahead.component.html',
   styleUrls: ['./typeahead.component.scss']
 })
 export class TypeaheadComponent implements OnInit {
-  model: any
-  contatos: any
-  typeahead: any
+  model: any;
+  contatos: any;
+  typeahead: any;
   @Output() nameEmitter = new EventEmitter();
   @Input() dadoLookup: string;
-  public valoresTypeahead: Array<any> = []
+  public valoresTypeahead: Array<any> = [];
 
   incrementa(_value) {
     this.nameEmitter.emit({ novoValor: _value });
   }
 
-  constructor(private contatoService: ContatoService) { }
+  constructor(private contatoService: ContatoService) {}
 
   ngOnInit() {
     if (this.dadoLookup) {
-      this.model = this.dadoLookup
+      this.model = this.dadoLookup;
     }
     this.contatoService.get().subscribe(contato => {
       this.contatos = contato;
@@ -40,8 +38,10 @@ export class TypeaheadComponent implements OnInit {
     text$.pipe(
       debounceTime(200),
       distinctUntilChanged(),
-      map(term => term.length < 2 ? []
-        : this.valoresTypeahead.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
-    )
-
+      map(term =>
+        term.length < 2
+          ? []
+          : this.valoresTypeahead.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10)
+      )
+    );
 }

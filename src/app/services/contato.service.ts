@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ContatoService {
   produtoUrl = 'http://localhost:3000';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   get(): Observable<any> {
     return this.http.get(this.produtoUrl);
   }

@@ -12,14 +12,15 @@ import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 })
 export class ContatosListagemComponent implements OnInit {
   contatos = [];
-  valoresTypeahead: Array<string> = [];
+  // valoresTypeahead: Array<string> = [];
   constructor(private contatoService: ContatoService /*private service: TreinoHttp, private config: any*/) { }
 
   ngOnInit() {
     this.contatoService.get().subscribe(contato => {
       this.contatos = contato;
+      console.log(this.contatos)
       for (var i = 0; i < this.contatos.length; i++) {
-        this.valoresTypeahead.push(this.contatos[i].descricao);
+        // this.valoresTypeahead.push(this.contatos[i].descricao);
       }
     });
   }

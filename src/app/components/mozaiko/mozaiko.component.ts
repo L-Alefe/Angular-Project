@@ -18,8 +18,9 @@ export class MozaikoComponent implements OnInit {
     }
   }
   public model: any;
-  ngOnInit() { }
+  ngOnInit() {}
   aparecer(evento) {
-    // console.log(evento)
+    console.log('aaiinnn -->');
+    console.log(evento);
   }
 }

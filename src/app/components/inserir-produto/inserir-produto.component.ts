@@ -16,7 +16,7 @@ export class InserirProdutoComponent implements OnInit {
     descricao: new FormControl()
   });
 
-  constructor(private contatoService: ContatoService, private location: Location) {}
+  constructor(private contatoService: ContatoService, private location: Location) { }
 
   ngOnInit() {
     this.produto = new Produto();
@@ -24,7 +24,9 @@ export class InserirProdutoComponent implements OnInit {
 
   criar(frm: FormGroup) {
     this.produto = frm.value;
-    this.contatoService.post(this.produto).subscribe(res => {});
+    console.log('PRODUTO -->')
+    console.log(this.produto)
+    this.contatoService.post(this.produto).subscribe(res => { });
     frm.reset();
   }
 }
