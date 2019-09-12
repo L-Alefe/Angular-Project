@@ -1,0 +1,5 @@
+<form [formGroup]="profileForm">
+  <label>
+    <input type="text" formControlName="mensagem" (keyup)="sendMessage()" />
+  </label>
+</form>
