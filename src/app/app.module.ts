@@ -18,6 +18,8 @@ import { MozaikoComponent } from './components/mozaiko/mozaiko.component';
 import { TypeaheadComponent } from './components/mozaikoComponents/typeahead/typeahead.component';
 import { LookupComponent } from './components/mozaikoComponents/lookup/lookup.component';
 import { LookupTableComponent } from './components/routes/lookup-table/lookup-table.component';
+import { EnviaValorComponent } from './components/envia-valor/envia-valor.component';
+import { RecebeValorComponent } from './components/recebe-valor/recebe-valor.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { LookupTableComponent } from './components/routes/lookup-table/lookup-ta
     MozaikoComponent,
     TypeaheadComponent,
     LookupComponent,
-    LookupTableComponent
+    LookupTableComponent,
+    EnviaValorComponent,
+    RecebeValorComponent
   ],
   imports: [PipeModule, BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, NgbModule],
   providers: [],
